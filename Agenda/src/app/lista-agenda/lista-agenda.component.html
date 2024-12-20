@@ -1,0 +1,157 @@
+<div class="card" style="scrollbar-width: none">
+  <h1 class="text-success text-center">Lista de turnos</h1>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Cedula</th>
+            <th scope="col">Fecha Turno</th>
+            <th scope="col" style="display: none">Fecha Turno Corta</th>
+            <th scope="col">Descipcion</th>
+            <th scope="col">Sucursal</th>
+            <th scope="col">Turno</th>
+            <th scope="col" style="display: none">Id turno</th>
+            <th scope="col">Opción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let _data of ListaAgendaTurnos">
+            <td>{{ _data.nombre }}</td>
+            <td>{{ _data.cedula }}</td>
+            <td>{{ _data.fechaTurno }}</td>
+            <td style="display: none">{{ _data.fechaCorta }}</td>
+            <td>{{ _data.descripcion }}</td>
+            <td>{{ _data.sucursal }}</td>
+            <td>{{ _data.turno }}</td>
+            <td style="display: none">{{ _data.idTurno }}</td>
+
+            <td>
+              <button
+                class="btn btn-success btnImagen"
+                (click)="
+                  TurnoXCedula(_data.cedula, _data.fechaCorta, _data.idTurno)
+                "
+                (click)="OpenDialog(content)"
+                placement="top"
+                ngbTooltip="Editar registro"
+                data-bs-toggle="modal"
+                data-bs-target="#EditarTurno"
+              >
+                <i class="fa-solid fa-pen-to-square"></i>
+              </button>
+              <br />
+              <br />
+              <button
+                class="btn btn-success btnImagen"
+                (click)="Eliminar(_data.cedula)"
+                placement="top"
+                ngbTooltip="Eliminar registro"
+              >
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="d-flex justify-content-between p-2">
+        <ngb-pagination
+          [collectionSize]="collectionSize"
+          [(page)]="page"
+          [pageSize]="pageSize"
+          (pageChange)="refreshTable()"
+        >
+        </ngb-pagination>
+        <select
+          class="form-select"
+          style="width: auto"
+          [(ngModel)]="pageSize"
+          (ngModelChange)="refreshTable()"
+        >
+          <option [ngValue]="2">2 items por pagina</option>
+          <option [ngValue]="4">4 items por pagina</option>
+          <option [ngValue]="6">6 items por pagina</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- modal para editar un turno -->
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title text-success" id="modal-basic-title">
+      Editar turno {{ TurnoView }}
+    </h4>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <div class="mb-2">
+      <label for="cedula" class="text-success">Cedula</label>
+      <input
+        type="text"
+        class="form-control text-success"
+        [(ngModel)]="turno.cedula"
+        placeholder="Ingrese su cedula"
+        readonly="readonly"
+      />
+    </div>
+    <div class="mb-2">
+      <label for="nombre" class="text-success">Nombre</label>
+      <input
+        type="text"
+        class="form-control text-success"
+        [(ngModel)]="turno.nombre"
+        placeholder="Ingrese su nombre"
+        readonly="readonly"
+      />
+    </div>
+    <div class="mb-2">
+      <label for="fechaTurno" class="text-success">Fecha</label>
+      <div class="input-group">
+        <input
+          class="form-control text-success"
+          [(ngModel)]="_datepicker"
+          ngbDatepicker
+          name="dp"
+          #d="ngbDatepicker"
+          [placement]="placement"
+          readonly
+          placeholder="Seleccione su fecha de turno"
+        />
+      </div>
+    </div>
+    <div class="mb-2">
+      <label for="tipoPersona" class="text-success">Sucursal</label>
+      <input
+        type="text"
+        class="form-control text-success"
+        [(ngModel)]="sucursalView"
+        readonly="readonly"
+      />
+    </div>
+    <div class="mb-2">
+      <label for="descripcion" class="text-success">Descripcion</label>
+      <input
+        type="text"
+        class="form-control text-success"
+        [(ngModel)]="turno.descripcion"
+        placeholder="Ingrese su descripción"
+      />
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-success"
+      (click)="modal.close('Save click')"
+    >
+      Actualizar
+    </button>
+  </div>
+</ng-template>

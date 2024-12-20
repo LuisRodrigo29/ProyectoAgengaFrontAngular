@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+  <div class="col-5 colizquierda">
+    <div class="card cardleft">
+      <div class="card cardsInternas">
+        <div class="card-body">
+          <img
+            [src]="imgUser"
+            alt="imagenusuario.jpg"
+            class="imgPerfil img-fluid"
+          />
+          <h2 class="text-center text-success">
+            Bienvenido sr/a {{ lblUsername }}
+          </h2>
+        </div>
+      </div>
+      <br />
+      <div class="card cardsInternas">
+        <div class="card-body">
+          <div class="mb-2">
+            <div class="btnOpciones btn-block" (click)="RegistrarTurno()">
+              <i class="fa-solid fa-user"></i>
+              Registrar Turno
+            </div>
+          </div>
+          <div class="mb-2">
+            <div class="btnOpciones btn-block" (click)="ListaTurnos()">
+              <i class="fa-solid fa-list"></i>
+              Lista de turnos
+            </div>
+          </div>
+          <div class="mb-2">
+            <div class="btnOpciones btn-block" (click)="Salir()">
+              <i class="fa-solid fa-right-from-bracket"></i>
+              Salir
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-7">
+    <div class="card cardright">
+      <div class="card-body">
+        <iframe
+          src=""
+          frameborder="0"
+          [src]="urlFrame"
+          width="100%"
+          height="100%"
+        >
+        </iframe>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,58 @@
+.imglogin {
+  width: 100%;
+  height: 75%;
+  margin-top: 10%;
+  margin-left: -35%;
+  border-radius: 55%;
+  box-shadow: 1px 5px 3px rgba(7, 157, 70, 0.585);
+}
+.cardLogin {
+  margin: 5% 0%;
+  box-shadow: 5px 5px 3px rgba(7, 157, 70, 0.585);
+}
+.cardBodyLogin {
+  margin-top: 9%;
+  margin-right: -38%;
+  height: 55vh;
+  box-shadow: 5px 5px 3px rgba(7, 157, 70, 0.585);
+}
+input {
+  border-radius: 20px;
+}
+
+input:active {
+  box-shadow: 5px 5px 3px rgba(7, 157, 70, 0.585);
+  border-color: #0b7727;
+}
+
+.material-icon-user {
+  position: absolute;
+  display: block;
+  bottom: 10.9rem;
+  right: 2rem;
+  user-select: none;
+  cursor: pointer;
+  top: 3.5rem;
+}
+.material-icon-password {
+  position: absolute;
+  display: block;
+  bottom: 10.9rem;
+  right: 2rem;
+  user-select: none;
+  cursor: pointer;
+  top: 8.5rem;
+}
+.coloricon {
+  color: #198754;
+}
+.btnlogin {
+  width: 70%;
+  align-items: center;
+  margin: 10% 15%;
+  border-radius: 20px;
+}
+
+.labelRegistro {
+  margin-left: 15%;
+}

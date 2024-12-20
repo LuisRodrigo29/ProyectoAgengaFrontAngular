@@ -1,0 +1,73 @@
+<div class="card" style="scrollbar-width: none">
+  <h2 class="text-center text-success">Registrar turno</h2>
+  <div class="card-body">
+    <div class="mb-2">
+      <label for="cedula" class="text-success">Cedula</label>
+      <input
+        type="text"
+        class="form-control text-success"
+        [(ngModel)]="turno.cedula"
+        placeholder="Ingrese su cedula"
+      />
+    </div>
+    <div class="mb-2">
+      <label for="nombre" class="text-success">Nombre</label>
+      <input
+        type="text"
+        class="form-control text-success"
+        [(ngModel)]="turno.nombre"
+        placeholder="Ingrese su nombre"
+      />
+    </div>
+    <div class="mb-2">
+      <label for="fechaTurno" class="text-success">Fecha</label>
+      <div class="input-group">
+        <input
+          class="form-control text-success"
+          [(ngModel)]="_datepicker"
+          ngbDatepicker
+          name="dp"
+          #d="ngbDatepicker"
+          [placement]="placement"
+          readonly
+          placeholder="Seleccione su fecha de turno"
+        />
+        <span class="input-group-btn">
+          <button
+            class="btn btn-success"
+            (click)="d.toggle()"
+            type="button"
+            placement="top"
+            ngbTooltip="Calendario"
+          >
+            <i class="fa-solid fa-calendar"></i>
+          </button>
+        </span>
+      </div>
+    </div>
+    <div class="mb-2">
+      <label for="tipoPersona" class="text-success">Sucursal</label>
+      <select class="form-control text-success" [(ngModel)]="turno.id_sucursal">
+        <option value="0">Seleccione</option>
+        <option *ngFor="let _data of responseSucursal" value="{{ _data.id }}">
+          {{ _data.nombre }}
+        </option>
+      </select>
+    </div>
+    <div class="mb-2">
+      <label for="descripcion" class="text-success">Descripcion</label>
+      <input
+        type="text"
+        class="form-control text-success"
+        [(ngModel)]="turno.descripcion"
+        placeholder="Ingrese su descripción"
+      />
+    </div>
+    <div class="mb-2">
+      <button class="btn btn-success btn-block" (click)="RegistrarTurno()">
+        Registrar turno
+        <i class="fa-solid fa-floppy-disk"></i>
+      </button>
+    </div>
+  </div>
+</div>

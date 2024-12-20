@@ -1,0 +1,45 @@
+<div class="card cardLogin">
+  <div class="row justify-content-center" style="height: 75vh">
+    <div class="col-4">
+      <img [src]="imgLogin" class="imglogin" alt="logo_login.png" />
+    </div>
+    <div class="col-4">
+      <div class="card cardBodyLogin">
+        <div class="card-body">
+          <div class="mb-2">
+            <label for="usuario" class="form-label text-success">Usuario</label>
+            <input
+              type="text"
+              name="usuario"
+              class="form-control text-success"
+              [(ngModel)]="login.usuario"
+              placeholder="Ingrese su usuario"
+            />
+          </div>
+          <div class="mb-2">
+            <label for="password" class="form-label text-success"
+              >Contraseña</label
+            >
+            <span class="material-icon-user">
+              <i class="fa-solid fa-user coloricon"></i>
+            </span>
+            <input
+              type="password"
+              name="password"
+              class="form-control text-success"
+              [(ngModel)]="login.contrasena"
+              placeholder="Ingrese su contraseña"
+            />
+            <span class="material-icon-password">
+              <i class="fa-solid fa-key coloricon"></i>
+            </span>
+          </div>
+          <button class="btn btn-success btnlogin" (click)="Login()">
+            <i class="fa-solid fa-door-open"></i>
+            Ingresar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

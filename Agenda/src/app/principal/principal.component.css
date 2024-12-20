@@ -1,0 +1,42 @@
+.colizquierda {
+  height: 99vh;
+}
+.cardleft {
+  box-shadow: 5px 5px 3px rgba(7, 157, 70, 0.585);
+  height: 85vh;
+  margin-top: 5%;
+}
+.cardright {
+  height: 85vh;
+  box-shadow: 5px 5px 3px rgba(7, 157, 70, 0.585);
+  margin-top: 4%;
+}
+.imgPerfil {
+  width: 220px;
+  border-radius: 55%;
+  height: 35vh;
+  margin-left: 15%;
+  box-shadow: 1px 5px 3px #fff;
+}
+
+.cardsInternas {
+  width: 89%;
+  margin-left: 5%;
+  box-shadow: 5px 5px 3px rgba(7, 157, 70, 0.585);
+}
+
+.btnOpciones {
+  background-color: #0b7727;
+  width: 255px;
+  margin-left: 15%;
+  align-items: center;
+  border-radius: 20px;
+  text-align: center;
+  color: #fff;
+  border: 1px solid rgba(7, 157, 70, 0.585);
+  cursor: pointer;
+}
+.btnOpciones:hover {
+  background-color: #0b7727;
+  border-color: #0b7727;
+}
